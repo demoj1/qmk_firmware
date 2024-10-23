@@ -8,26 +8,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
   case KC_LEFT:
     if (mod_state & MOD_LGUI) {
-      del_mods(MOD_LGUI);
-      unregister_code(KC_LEFT);
-      if (record->event.pressed) register_code(KC_HOME);
-      else unregister_code(KC_HOME);
-      add_mods(MOD_LGUI);
+      if (record->event.pressed) {
+        del_mods(MOD_LGUI);
+        register_code(KC_HOME);
+        add_mods(MOD_LGUI);
+      }
+      else {
+        unregister_code(KC_HOME);
+      }
 
-      return false;
+      return true;
     } else {
       return true;
     }
     break;
   case KC_RIGHT:
     if (mod_state & MOD_LGUI) {
-      del_mods(MOD_LGUI);
-      unregister_code(KC_RIGHT);
-      if (record->event.pressed) register_code(KC_END);
-      else unregister_code(KC_END);
-      add_mods(MOD_LGUI);
+      if (record->event.pressed) {
+        del_mods(MOD_LGUI);
+        register_code(KC_END);
+        add_mods(MOD_LGUI);
+      }
+      else {
+        unregister_code(KC_END);
+      }
 
-      return false;
+      return true;
     } else {
       return true;
     }
