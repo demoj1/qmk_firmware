@@ -10,14 +10,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (mod_state & MOD_LGUI) {
       if (record->event.pressed) {
         del_mods(MOD_LGUI);
-        register_code(KC_HOME);
+        tap_code(KC_HOME);
         add_mods(MOD_LGUI);
       }
-      else {
-        unregister_code(KC_HOME);
-      }
 
-      return true;
+      return false;
     } else {
       return true;
     }
@@ -26,14 +23,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (mod_state & MOD_LGUI) {
       if (record->event.pressed) {
         del_mods(MOD_LGUI);
-        register_code(KC_END);
+        tap_code(KC_END);
         add_mods(MOD_LGUI);
       }
-      else {
-        unregister_code(KC_END);
-      }
 
-      return true;
+      return false;
     } else {
       return true;
     }
