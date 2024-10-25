@@ -12,6 +12,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         del_mods(MOD_LGUI);
         tap_code(KC_HOME);
         add_mods(MOD_LGUI);
+      } else {
+        unregister_code(KC_LEFT);
       }
 
       return false;
@@ -25,6 +27,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         del_mods(MOD_LGUI);
         tap_code(KC_END);
         add_mods(MOD_LGUI);
+      } else {
+        unregister_code(KC_RIGHT);
       }
 
       return false;
